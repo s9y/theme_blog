@@ -70,9 +70,9 @@
 
     <main>
         <div class="layout-container">
-            <article id="content">
+            <div id="content">
             {$CONTENT}
-            </article>
+            </div>
 
             <aside id="sidebar">
                 <h2>More info</h2>
