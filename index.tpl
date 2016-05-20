@@ -1,56 +1,111 @@
 {if $is_embedded != true}
-{if $is_xhtml}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-{else}
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-           "http://www.w3.org/TR/html4/loose.dtd">
-{/if}
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{$lang}" lang="{$lang}">
+<!DOCTYPE html>
+<html class="no-js" lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$head_title|@default:$blogTitle} {if $head_subtitle} - {$head_subtitle}{/if}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}" />
-    <meta name="Powered-By" content="Serendipity v.{$head_version}" />
-    <link rel="stylesheet" type="text/css" href="{$head_link_stylesheet}" />
-    <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="http://feeds.feedburner.com/s9y" />
-    <link rel="alternate"  type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2" />
-    <link rel="alternate"  type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml" />
-    <link rel="shortcut icon" href="{serendipity_getFile file="img/favicon.png"}"></link>
-{if $entry_id}
-    <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}" />
+    <meta name="generator" content="Serendipity v.{$head_version}">
+{if ($view == "entry" || $view == "start" || $view == "feed" || $view == "plugin" || $staticpage_pagetitle != "" || $robots_index == 'index')}
+    <meta name="robots" content="index,follow">
+{else}
+    <meta name="robots" content="noindex,follow">
 {/if}
-
+{if ($view == "entry")}
+    <link rel="canonical" href="{$entry.rdf_ident}">
+{/if}
+{if ($view == "start")}
+    <link rel="canonical" href="{$serendipityBaseURL}">
+{/if}
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="dns-prefetch" href="//ajax.googleapis.com">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet">
+    <link rel="stylesheet" href="{$head_link_stylesheet}">
+    <script src="{serendipity_getFile file="scripts/modernizr/modernizr.js"}"></script>
+    <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="http://feeds.feedburner.com/s9y">
+    <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
+    <link rel="alternate" type="application/x.atom+xml" title="{$blogTitle} Atom feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">
+{if $entry_id}
+    <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
+{/if}
 {serendipity_hookPlugin hook="frontend_header"}
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-77038-1";
-urchinTracker();
-</script>
-
+{* FIXME *}
+    {* <script src="http://www.google-analytics.com/urchin.js"></script> *}
+{* <script type="text/javascript"> *}
+{* _uacct = "UA-77038-1"; *}
+{* urchinTracker(); *}
+{* </script> *}
 </head>
-
-<body>
+<body id="top">
 {else}
 {serendipity_hookPlugin hook="frontend_header"}
 {/if}
-<div id="wrap">
-<div id="serendipity_banner"><a id="topofpage"></a>
-	<div id="menu"><a href="http://www.s9y.org" title="Serendipity Homepage">{$CONST.HOMEPAGE}</a> | <a href="http://blog.s9y.org" title="Latest News from the official Serendipity Blog">Blog</a> | <a href="http://www.s9y.org/12.html" title="Try Serendipity">Download</a> | <a href="http://www.s9y.org/forums" title="Serendipity user and developer forum">User Forums</a> | <a href="http://spartacus.s9y.org" title="Spartacus online repository for plugins and templates">Plugins / Templates</a> | <a href="http://feeds.feedburner.com/s9y" title="Subscribe to our blog's feed at feedburner" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" alt="Rss icon" style="border:0"/></a></div>
-    <div id="identity"><h1><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|@default:$blogTitle|truncate:50:" ..."}</a></h1>
-    <h2><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|@default:$blogDescription}</a></h2></div>
-</div>
-<div id="mainpane">
-	<div id="rightcolumn"><div id="contenttop">&nbsp;</div>
-		<div id="content">{$CONTENT}</div>
-	</div>
-	<div id="serendipityLeftSideBar"><div id="sidebartop">&nbsp;</div><div id="sidebarmiddle">
-		{serendipity_printSidebar side="right"}{serendipity_printSidebar side="left"}</div>
-	</div>
-	<div id="footer">
-	</div>
-</div></div>
+    <nav id="nav-global">
+        <div class="layout-container">
+            <a id="open-nav" class="nav-toggle" href="#site-nav">Menu</a>
+
+            <ul id="site-nav" class="nav-collapse">
+                <li><a href="http://docs.s9y.org">Start</a></li>{* FIXME *}
+                <li><a href="http://docs.s9y.org/docs/index.html">Docs</a></li>{* FIXME *}
+                <li id="current-page"><a href="http://blog.s9y.org">Blog</a></li>
+                <li><a href="http://board.s9y.org">Forums</a></li>
+                <li><a href="http://spartacus.s9y.org/">Plugins</a></li>
+                <li><a href="http://spartacus.s9y.org/index.php?mode=template_all">Themes</a></li>
+                <li><a href="https://github.com/s9y">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="masthead">
+        <div class="layout-container">
+            <h1><span>{$head_title|@default:$blogTitle|truncate:50:" ..."} – </span>{$head_subtitle|@default:$blogDescription}</h1>
+        </div>
+    </header>
+
+    <div id="claim">
+        <div class="layout-container">
+            <span id="slogan">Not mainstream since 2002</span>
+        </div>
+    </div>
+
+    <main>
+        <div class="layout-container">
+            <article id="content">
+            {$CONTENT}
+            </article>
+
+            <aside id="sidebar">
+                <h2>More info</h2>
+
+                <section class="widget">
+                    <h3>{$CONST.QUICKSEARCH}</h3>
+
+                    <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get" role="search">
+                        <input type="hidden" name="serendipity[action]" value="search">
+                        <label for="serendipityQuickSearchTermField">{$CONST.QUICKSEARCH}</label>
+                        <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" value="">
+                        <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
+                    </form>
+                    {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
+                </section>
+                {serendipity_printSidebar side="right"}
+                {serendipity_printSidebar side="left"}
+            </aside>
+        </div>
+    </main>
+
+    <footer id="service">
+        <div class="layout-container">
+            <ul id="service-links">
+                <li><a id="to-top" href="#top">Back to top</a></li>
+                <li><a href="http://jann.is/datenschutz.html">Privacy policy</a></li>
+            </ul>
+
+            <p id="supporters">Thanks to <a href="http://www.cityreview.de">Regionalportal</a> and <a href="http://www.aoe.com">AOE - TYPO3 &amp; Magento Agentur</a> for supporting the s9y project with servers and bandwidth.</p>
+        </div>
+    </footer>
+
+    <script src="{serendipity_getFile file="scripts/master.js"}"></script>
 {serendipity_hookPlugin hook="frontend_footer"}
 {if $is_embedded != true}
 </body>
