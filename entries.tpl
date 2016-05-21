@@ -4,25 +4,11 @@
     {foreach from=$dategroup.entries item="entry"}
     {assign var="entry" value=$entry scope="parent"}
     <article class="serendipity_entry{if $dategroup.is_sticky} sticky{/if}">
-        <h2><a href="{$entry.link}">{$entry.title|@default:$entry.body|truncate:200:" ..."}</a></h2>
+        <header>
+            <h2><a href="{$entry.link}">{$entry.title|@default:$entry.body|truncate:200:" ..."}</a></h2>
 
-        <footer>
-            <p>{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>{if $entry.categories} {$CONST.IN} {foreach from=$entry.categories item="category" name="categories"}<a href="{$category.category_link}">{$category.category_name|@escape}</a>{if not $smarty.foreach.categories.last}, {/if}{/foreach}{/if}{if $dategroup.is_sticky} {$CONST.ON} {$entry.timestamp|@formatTime:DATE_FORMAT_ENTRY}{else} {$CONST.ON} {$entry.timestamp|@formatTime:DATE_FORMAT_ENTRY} {$CONST.AT} {$entry.timestamp|@formatTime:'%H:%M'}{/if}</p>
-
-            <ul>
-            {if $entry.has_comments}
-                <li><a href="{$entry.link}#comments">{$entry.label_comments} ({$entry.comments})</a></li>
-            {/if}
-            {if $entry.has_trackbacks}
-                <li><a href="{$entry.link}#trackbacks">{$entry.label_trackbacks} ({$entry.trackbacks})</a></li>
-            {/if}
-            {if $entry.is_entry_owner and not $is_preview}
-                <li><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></li>
-            {/if}
-            </ul>
-
-            {$entry.add_footer}
-        </footer>
+            <p class="serendpity_entry_byline">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>{if $entry.categories} {$CONST.IN} {foreach from=$entry.categories item="category" name="categories"}<a href="{$category.category_link}">{$category.category_name|@escape}</a>{if not $smarty.foreach.categories.last}, {/if}{/foreach}{/if}{if $dategroup.is_sticky} {$CONST.ON} {$entry.timestamp|@formatTime:DATE_FORMAT_ENTRY}{else} {$CONST.ON} {$entry.timestamp|@formatTime:DATE_FORMAT_ENTRY} {$CONST.AT} {$entry.timestamp|@formatTime:'%H:%M'}{/if}.</p>
+        </header>
 
         <div class="serendipity_entry_body">
         	{$entry.body}
@@ -38,6 +24,22 @@
             {$entry.plugin_display_dat}
         {/if}
         </div>
+
+        <footer>
+            <ul class="plainList">
+            {if $entry.has_comments}
+                <li><a href="{$entry.link}#comments">{$entry.label_comments} ({$entry.comments})</a></li>
+            {/if}
+            {if $entry.has_trackbacks}
+                <li><a href="{$entry.link}#trackbacks">{$entry.label_trackbacks} ({$entry.trackbacks})</a></li>
+            {/if}
+            {if $entry.is_entry_owner and not $is_preview}
+                <li><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></li>
+            {/if}
+            </ul>
+
+            {$entry.add_footer}
+        </footer>
 
 	<!--
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
