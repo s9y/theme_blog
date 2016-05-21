@@ -28,10 +28,10 @@
         <footer>
             <ul class="plainList">
             {if $entry.has_comments}
-                <li><a href="{$entry.link}#comments">{$entry.label_comments} ({$entry.comments})</a></li>
+                <li><a href="{$entry.link}#comments">{$entry.comments} {$entry.label_comments}</a></li>
             {/if}
             {if $entry.has_trackbacks}
-                <li><a href="{$entry.link}#trackbacks">{$entry.label_trackbacks} ({$entry.trackbacks})</a></li>
+                <li><a href="{$entry.link}#trackbacks">{$entry.trackbacks} {$entry.label_trackbacks}</a></li>
             {/if}
             {if $entry.is_entry_owner and not $is_preview}
                 <li><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></li>
