@@ -39,7 +39,7 @@
     {if $is_moderate_comments}
         <p class="serendipity_msg_important">{$CONST.COMMENTS_WILL_BE_MODERATED}</p>
     {/if}
-        <div class="form_button">
+        <div class="form_buttons">
             <input id="serendipity_preview" name="serendipity[preview]" type="submit" value="{$CONST.PREVIEW}">
             <input id="serendipity_submit" name="serendipity[submit]" type="submit" value="{$CONST.SUBMIT_COMMENT}">
         </div>
