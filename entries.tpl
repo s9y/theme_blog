@@ -6,8 +6,6 @@
     <article class="serendipity_entry{if $dategroup.is_sticky} sticky{/if}">
         <header>
             <h2><a href="{$entry.link}">{$entry.title|@default:$entry.body|truncate:200:" ..."}</a></h2>
-
-            <p class="serendpity_entry_byline">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a></p>
         </header>
 
         <div class="serendipity_entry_body">
@@ -26,15 +24,9 @@
         </div>
 
         <footer>
+            <p>{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>{if $entry.categories} {$CONST.IN} {foreach from=$entry.categories item="category" name="categories"}<a href="{$category.category_link}">{$category.category_name|@escape}</a>{if not $smarty.foreach.categories.last}, {/if}{/foreach}{/if}{if $dategroup.is_sticky} {$CONST.ON} {$entry.timestamp|@formatTime:DATE_FORMAT_ENTRY}{else} {$CONST.ON} {$entry.timestamp|@formatTime:DATE_FORMAT_ENTRY} {$CONST.AT} {$entry.timestamp|@formatTime:'%H:%M'}{/if}</p>
+        {if $entry.has_comments or $entry.has_trackbacks}
             <ul class="plainList">
-            {if $entry.categories}
-                <li>{$CONST.IN} {foreach from=$entry.categories item="category" name="categories"}<a href="{$category.category_link}">{$category.category_name|@escape}</a>{if not $smarty.foreach.categories.last}, {/if}{/foreach}</li>
-            {/if}
-            {if $dategroup.is_sticky}
-                <li>{$CONST.ON} {$entry.timestamp|@formatTime:DATE_FORMAT_ENTRY}</li>
-            {else}
-                <li>{$CONST.ON} {$entry.timestamp|@formatTime:DATE_FORMAT_ENTRY} {$CONST.AT} {$entry.timestamp|@formatTime:'%H:%M'}</li>
-            {/if}
             {if $entry.has_comments}
                 <li><a href="{$entry.link}#comments">{$entry.comments} {$entry.label_comments}</a></li>
             {/if}
@@ -45,7 +37,7 @@
                 <li><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></li>
             {/if}
             </ul>
-
+        {/if}
             {$entry.add_footer}
         </footer>
 
