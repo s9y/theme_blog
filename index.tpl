@@ -19,7 +19,6 @@
 {/if}
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="dns-prefetch" href="https://ajax.googleapis.com">
-    <link rel="dns-prefetch" href="https://code.jquery.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet">
     <link rel="stylesheet" href="{$head_link_stylesheet}">
