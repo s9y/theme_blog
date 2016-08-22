@@ -18,8 +18,10 @@
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="dns-prefetch" href="//ajax.googleapis.com">
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+    <link rel="dns-prefetch" href="https://code.jquery.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet">
     <link rel="stylesheet" href="{$head_link_stylesheet}">
     <script src="{serendipity_getFile file="scripts/modernizr/modernizr.js"}"></script>
     <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="http://feeds.feedburner.com/s9y">
