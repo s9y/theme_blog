@@ -18,9 +18,6 @@
             {$entry.extended}
             </div>
         {/if}
-        {if $entry.plugin_display_dat}
-            {$entry.plugin_display_dat}
-        {/if}
         </div>
 
         <footer>
@@ -52,7 +49,9 @@
 		dc:identifier="{$entry.rdf_ident}" />
 	</rdf:RDF>
 	-->
+    {if $entry.plugin_display_dat}
         {$entry.plugin_display_dat}
+    {/if}
 
     {if $is_single_entry and not $use_popups and not $is_preview}
         {if $CONST.DATA_UNSUBSCRIBED}
