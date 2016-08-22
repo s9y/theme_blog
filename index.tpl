@@ -31,12 +31,6 @@
     <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
 {/if}
 {serendipity_hookPlugin hook="frontend_header"}
-{* FIXME *}
-    {* <script src="http://www.google-analytics.com/urchin.js"></script> *}
-{* <script type="text/javascript"> *}
-{* _uacct = "UA-77038-1"; *}
-{* urchinTracker(); *}
-{* </script> *}
 </head>
 <body id="top">
 {else}
@@ -108,6 +102,12 @@
     </footer>
 
     <script src="{serendipity_getFile file="scripts/master.js"}"></script>
+    <!-- Google Analytics -->
+    <script>
+window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+ga('create','UA-77038-1','auto');ga('send','pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 {serendipity_hookPlugin hook="frontend_footer"}
 {if $is_embedded != true}
 </body>
