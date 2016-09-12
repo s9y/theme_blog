@@ -103,7 +103,7 @@
     <script src="{serendipity_getFile file="scripts/master.js"}"></script>
     <!-- Google Analytics -->
     <script>
-window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+window.ga=function(){ldelim}ga.q.push(arguments){rdelim}};ga.q=[];ga.l=+new Date;
 ga('create','UA-77038-1','auto');ga('send','pageview')
     </script>
     <script src="https://www.google-analytics.com/analytics.js" async defer></script>
