@@ -18,7 +18,7 @@
 <body>
     <main>
         <div class="layout-container">
-            <div id="content">
+            <div id="content" role="main">
             {if $mode == 'preview'}
                 <div class="clearfix">
             {elseif $mode == 'save'}

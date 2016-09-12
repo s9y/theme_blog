@@ -35,7 +35,7 @@
 {else}
 {serendipity_hookPlugin hook="frontend_header"}
 {/if}
-    <nav id="nav-global">
+    <nav id="nav-global" role="navigation">
         <div class="layout-container">
             <a id="open-nav" class="nav-toggle" href="#site-nav">Menu</a>
 
@@ -51,7 +51,7 @@
         </div>
     </nav>
 
-    <header id="masthead">
+    <header id="masthead" role="banner">
         <div class="layout-container">
             <h1><span>{$head_title|@default:$blogTitle|truncate:50:" ..."} – </span>{$head_subtitle|@default:$blogDescription}</h1>
         </div>
@@ -65,11 +65,11 @@
 
     <main>
         <div class="layout-container">
-            <div id="content">
+            <div id="content" role="main">
             {$CONTENT}
             </div>
 
-            <aside id="sidebar">
+            <aside id="sidebar" role="complementary">
                 <h2>More info</h2>
 
                 <section class="widget">
@@ -89,7 +89,7 @@
         </div>
     </main>
 
-    <footer id="service">
+    <footer id="service" role="contentinfo">
         <div class="layout-container">
             <ul id="service-links">
                 <li><a id="to-top" href="#top">Back to top</a></li>

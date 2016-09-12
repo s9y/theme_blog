@@ -127,7 +127,7 @@
     {/if}
 {/foreach}
 {if $footer_info or $footer_prev_page or $footer_next_page}
-    <nav class="serendipity_pagination">
+    <nav class="serendipity_pagination" role="navigation">
     {if $footer_info}
         <p>{$footer_info}</p>
     {/if}
