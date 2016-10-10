@@ -40,10 +40,10 @@
             <a id="open-nav" class="nav-toggle" href="#site-nav">Menu</a>
 
             <ul id="site-nav" class="nav-collapse">
-                <li><a href="http://docs.s9y.org">Start</a></li>{* FIXME *}
-                <li><a href="http://docs.s9y.org/docs/index.html">Docs</a></li>{* FIXME *}
-                <li id="current-page"><a href="http://blog.s9y.org">Blog</a></li>
-                <li><a href="http://board.s9y.org">Forums</a></li>
+                <li><a href="https://www.s9y.org">Start</a></li>
+                <li><a href="http://docs.s9y.org/docs/index.html">Docs</a></li>
+                <li id="current-page"><a href="{$serendipityBaseURL}{$serendipityRewritePrefix}">Blog</a></li>
+                <li><a href="https://board.s9y.org">Forums</a></li>
                 <li><a href="http://spartacus.s9y.org/">Plugins</a></li>
                 <li><a href="http://spartacus.s9y.org/index.php?mode=template_all">Themes</a></li>
                 <li><a href="https://github.com/s9y">GitHub</a></li>
