@@ -34,6 +34,7 @@
 <body id="top">
 {else}
 {serendipity_hookPlugin hook="frontend_header"}
+<<<<<<< HEAD
 {/if}
     <nav id="nav-global" role="navigation">
         <div class="layout-container">
@@ -109,6 +110,83 @@ ga('create','UA-77038-1','auto');ga('send','pageview')
     <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 -->
 {serendipity_hookPlugin hook="frontend_footer"}
+=======
+{/if}
+    <nav id="nav-global" role="navigation">
+        <div class="layout-container">
+            <a id="open-nav" class="nav-toggle" href="#site-nav">Menu</a>
+
+            <ul id="site-nav" class="nav-collapse">
+                <li><a href="https://www.s9y.org">Start</a></li>
+                <li><a href="http://docs.s9y.org/docs/index.html">Docs</a></li>
+                <li id="current-page"><a href="{$serendipityBaseURL}{$serendipityRewritePrefix}">Blog</a></li>
+                <li><a href="https://board.s9y.org">Forums</a></li>
+                <li><a href="http://spartacus.s9y.org/">Plugins</a></li>
+                <li><a href="http://spartacus.s9y.org/index.php?mode=template_all">Themes</a></li>
+                <li><a href="https://github.com/s9y">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="masthead" role="banner">
+        <div class="layout-container">
+            <h1><span>{$head_title|@default:$blogTitle|truncate:50:" ..."} – </span>{$head_subtitle|@default:$blogDescription}</h1>
+        </div>
+    </header>
+
+    <div id="claim">
+        <div class="layout-container">
+            <span id="slogan">Not mainstream since 2002</span>
+        </div>
+    </div>
+
+    <main>
+        <div class="layout-container">
+            <div id="content" role="main">
+            {$CONTENT}
+            </div>
+
+            <aside id="sidebar" role="complementary">
+                <h2>More info</h2>
+
+                <section class="widget">
+                    <h3>{$CONST.QUICKSEARCH}</h3>
+
+                    <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get" role="search">
+                        <input type="hidden" name="serendipity[action]" value="search">
+                        <label for="serendipityQuickSearchTermField">{$CONST.QUICKSEARCH}</label>
+                        <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" value="">
+                        <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
+                    </form>
+                    {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
+                </section>
+                {serendipity_printSidebar side="right"}
+                {serendipity_printSidebar side="left"}
+            </aside>
+        </div>
+    </main>
+
+    <footer id="service" role="contentinfo">
+        <div class="layout-container">
+            <ul id="service-links">
+                <li><a id="to-top" href="#top">Back to top</a></li>
+                <li><a href="http://jann.is/datenschutz.html">Privacy policy</a></li>
+            </ul>
+
+            <p id="supporters">Thanks to <a href="http://www.cityreview.de">Regionalportal</a> and <a href="http://www.aoe.com">AOE - TYPO3 &amp; Magento Agentur</a> for supporting the s9y project with servers and bandwidth.</p>
+        </div>
+    </footer>
+
+    <script src="{serendipity_getFile file="scripts/master.js"}"></script>
+    <!-- Google Analytics
+    <script>
+window.ga=function(){ldelim}ga.q.push(arguments){rdelim};ga.q=[];ga.l=+new Date;
+ga('create','UA-77038-1','auto');ga('send','pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+ -->
+{serendipity_hookPlugin hook="frontend_footer"}
+>>>>>>> cf87d2bed55ee3a54a4077db92e7ab7346002949
 {if $is_embedded != true}
 </body>
 </html>
