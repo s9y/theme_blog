@@ -18,9 +18,6 @@
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet">
     <link rel="stylesheet" href="{$head_link_stylesheet}">
     <script src="{serendipity_getFile file="scripts/modernizr/modernizr.js"}"></script>
     <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="http://feeds.feedburner.com/s9y">
@@ -96,7 +93,7 @@
                 <li><a href="https://blog.s9y.org/index.php?serendipity[subpage]=dsgvo_gdpr_privacy">Privacy policy</a></li>
             </ul>
 
-            <p id="supporters">Thanks to <a href="http://www.cityreview.de">Regionalportal</a> and <a href="http://www.aoe.com">AOE - TYPO3 &amp; Magento Agentur</a> for supporting the s9y project with servers and bandwidth.</p>
+            <p id="supporters">Thanks to <a href="http://www.cityreview.de">Regionalportal</a> for supporting the s9y project with servers and bandwidth.</p>
         </div>
     </footer>
 
