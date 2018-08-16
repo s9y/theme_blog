@@ -47,3 +47,4 @@
     <script src="{serendipity_getFile file="scripts/master.js" frontend=true}"></script>
 </body>
 </html>
+{/if}
