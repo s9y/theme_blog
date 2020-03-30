@@ -93,7 +93,7 @@
                 <li><a href="https://blog.s9y.org/index.php?serendipity[subpage]=dsgvo_gdpr_privacy">Privacy policy</a></li>
             </ul>
 
-            <p id="supporters">Thanks to <b>Regionalportal</b> for supporting the s9y project with servers and bandwidth.</p>
+            <p id="supporters">These pages are hosted by <b>Uberspace</b>.</p>
         </div>
     </footer>
 
